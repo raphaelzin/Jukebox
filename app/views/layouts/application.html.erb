@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jukebox</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="user_nav">
+
+	<div id="fb-root"></div>
+</div>
+
+<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+<br><br>
+
+<% User.all.each do |a|%>
+
+<img src="<%= a.image %>?type=large">
+<br>
+Name: <%= a.name %><br>
+UID: <%= a.uid%>
+
+<%end%>
+<img src="">
+<%= yield %>
+
+</body>
+</html>
